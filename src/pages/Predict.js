@@ -11,7 +11,7 @@ const Predict = () => {
     activityLevel: 5,
     stressLevel: 5,
     bmiCategory: "",
-    bloodPressure: "",
+    bloodPressure: "", 
     heartRate: 60,
     dailySteps: "",
   });
@@ -59,7 +59,7 @@ const Predict = () => {
     setLoading(true);
     setResult(null);
     try {
-      const response = await axios.post("http://localhost:5001/predict", formData);
+      const response = await axios.post("https://sleepdisorderprediction-backend.onrender.com/predict", formData);
       setResult(response.data.prediction === "None" ? "No disorder" : response.data.prediction);
     } catch (error) {
       console.error("Prediction failed:", error);
